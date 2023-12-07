@@ -493,46 +493,53 @@ namespace PnP.Core.Services
                 Interactive = true
             };
 
-            if (options.WebId == null || options.RegionalSettings == null)
+            if (options == null || options.WebId == null /*|| options.RegionalSettings == null*/ || options.AdditionalWebPropertiesOnCreate != null)
             {
                 await (context.Web as Web).RequestAsync(api, HttpMethod.Get, "Get").ConfigureAwait(false);
             }
             else
             {
                 context.Web.SetSystemProperty(p => p.Id, options.WebId);
-                // Copy regional settings, important to trigger the creation of the regional settings model from the target web model
-                var regionalSettings = context.Web.RegionalSettings;
-                if (options.RegionalSettings.AM != default) { regionalSettings.SetSystemProperty(p => p.AM, options.RegionalSettings.AM); }
-                if (options.RegionalSettings.CollationLCID != default) { regionalSettings.SetSystemProperty(p => p.CollationLCID, options.RegionalSettings.CollationLCID); }
-                if (options.RegionalSettings.DateFormat != default) { regionalSettings.SetSystemProperty(p => p.DateFormat, options.RegionalSettings.DateFormat); }
-                if (options.RegionalSettings.DateSeparator != default) { regionalSettings.SetSystemProperty(p => p.DateSeparator, options.RegionalSettings.DateSeparator); }
-                if (options.RegionalSettings.DecimalSeparator != default) { regionalSettings.SetSystemProperty(p => p.DecimalSeparator, options.RegionalSettings.DecimalSeparator); }
-                if (options.RegionalSettings.DigitGrouping != default) { regionalSettings.SetSystemProperty(p => p.DigitGrouping, options.RegionalSettings.DigitGrouping); }
-                if (options.RegionalSettings.FirstDayOfWeek != default) { regionalSettings.SetSystemProperty(p => p.FirstDayOfWeek, options.RegionalSettings.FirstDayOfWeek); }
-                if (options.RegionalSettings.IsEastAsia != default) { regionalSettings.SetSystemProperty(p => p.IsEastAsia, options.RegionalSettings.IsEastAsia); }
-                if (options.RegionalSettings.IsRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsRightToLeft, options.RegionalSettings.IsRightToLeft); }
-                if (options.RegionalSettings.IsUIRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsUIRightToLeft, options.RegionalSettings.IsUIRightToLeft); }
-                if (options.RegionalSettings.ListSeparator != default) { regionalSettings.SetSystemProperty(p => p.ListSeparator, options.RegionalSettings.ListSeparator); }
-                if (options.RegionalSettings.LocaleId != default) { regionalSettings.SetSystemProperty(p => p.LocaleId, options.RegionalSettings.LocaleId); }
-                if (options.RegionalSettings.NegativeSign != default) { regionalSettings.SetSystemProperty(p => p.NegativeSign, options.RegionalSettings.NegativeSign); }
-                if (options.RegionalSettings.NegNumberMode != default) { regionalSettings.SetSystemProperty(p => p.NegNumberMode, options.RegionalSettings.NegNumberMode); }
-                if (options.RegionalSettings.PM != default) { regionalSettings.SetSystemProperty(p => p.PM, options.RegionalSettings.PM); }
-                if (options.RegionalSettings.PositiveSign != default) { regionalSettings.SetSystemProperty(p => p.PositiveSign, options.RegionalSettings.PositiveSign); }
-                if (options.RegionalSettings.ShowWeeks != default) { regionalSettings.SetSystemProperty(p => p.ShowWeeks, options.RegionalSettings.ShowWeeks); }
-                if (options.RegionalSettings.ThousandSeparator != default) { regionalSettings.SetSystemProperty(p => p.ThousandSeparator, options.RegionalSettings.ThousandSeparator); }
-                if (options.RegionalSettings.Time24 != default) { regionalSettings.SetSystemProperty(p => p.Time24, options.RegionalSettings.Time24); }
-                if (options.RegionalSettings.TimeMarkerPosition != default) { regionalSettings.SetSystemProperty(p => p.TimeMarkerPosition, options.RegionalSettings.TimeMarkerPosition); }
-                if (options.RegionalSettings.TimeSeparator != default) { regionalSettings.SetSystemProperty(p => p.TimeSeparator, options.RegionalSettings.TimeSeparator); }
-                regionalSettings.Requested = true;
+                context.Web.Requested = true;
+               // Copy regional settings, important to trigger the creation of the regional settings model from the target web model
+               var regionalSettings = context.Web.RegionalSettings;
+                if (regionalSettings != null && options.RegionalSettings != null)
+                {
+                    if (options.RegionalSettings.AM != default) { regionalSettings.SetSystemProperty(p => p.AM, options.RegionalSettings.AM); }
+                    if (options.RegionalSettings.CollationLCID != default) { regionalSettings.SetSystemProperty(p => p.CollationLCID, options.RegionalSettings.CollationLCID); }
+                    if (options.RegionalSettings.DateFormat != default) { regionalSettings.SetSystemProperty(p => p.DateFormat, options.RegionalSettings.DateFormat); }
+                    if (options.RegionalSettings.DateSeparator != default) { regionalSettings.SetSystemProperty(p => p.DateSeparator, options.RegionalSettings.DateSeparator); }
+                    if (options.RegionalSettings.DecimalSeparator != default) { regionalSettings.SetSystemProperty(p => p.DecimalSeparator, options.RegionalSettings.DecimalSeparator); }
+                    if (options.RegionalSettings.DigitGrouping != default) { regionalSettings.SetSystemProperty(p => p.DigitGrouping, options.RegionalSettings.DigitGrouping); }
+                    if (options.RegionalSettings.FirstDayOfWeek != default) { regionalSettings.SetSystemProperty(p => p.FirstDayOfWeek, options.RegionalSettings.FirstDayOfWeek); }
+                    if (options.RegionalSettings.IsEastAsia != default) { regionalSettings.SetSystemProperty(p => p.IsEastAsia, options.RegionalSettings.IsEastAsia); }
+                    if (options.RegionalSettings.IsRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsRightToLeft, options.RegionalSettings.IsRightToLeft); }
+                    if (options.RegionalSettings.IsUIRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsUIRightToLeft, options.RegionalSettings.IsUIRightToLeft); }
+                    if (options.RegionalSettings.ListSeparator != default) { regionalSettings.SetSystemProperty(p => p.ListSeparator, options.RegionalSettings.ListSeparator); }
+                    if (options.RegionalSettings.LocaleId != default) { regionalSettings.SetSystemProperty(p => p.LocaleId, options.RegionalSettings.LocaleId); }
+                    if (options.RegionalSettings.NegativeSign != default) { regionalSettings.SetSystemProperty(p => p.NegativeSign, options.RegionalSettings.NegativeSign); }
+                    if (options.RegionalSettings.NegNumberMode != default) { regionalSettings.SetSystemProperty(p => p.NegNumberMode, options.RegionalSettings.NegNumberMode); }
+                    if (options.RegionalSettings.PM != default) { regionalSettings.SetSystemProperty(p => p.PM, options.RegionalSettings.PM); }
+                    if (options.RegionalSettings.PositiveSign != default) { regionalSettings.SetSystemProperty(p => p.PositiveSign, options.RegionalSettings.PositiveSign); }
+                    if (options.RegionalSettings.ShowWeeks != default) { regionalSettings.SetSystemProperty(p => p.ShowWeeks, options.RegionalSettings.ShowWeeks); }
+                    if (options.RegionalSettings.ThousandSeparator != default) { regionalSettings.SetSystemProperty(p => p.ThousandSeparator, options.RegionalSettings.ThousandSeparator); }
+                    if (options.RegionalSettings.Time24 != default) { regionalSettings.SetSystemProperty(p => p.Time24, options.RegionalSettings.Time24); }
+                    if (options.RegionalSettings.TimeMarkerPosition != default) { regionalSettings.SetSystemProperty(p => p.TimeMarkerPosition, options.RegionalSettings.TimeMarkerPosition); }
+                    if (options.RegionalSettings.TimeSeparator != default) { regionalSettings.SetSystemProperty(p => p.TimeSeparator, options.RegionalSettings.TimeSeparator); }
+                    regionalSettings.Requested = true;
 
-                // Copy timezone settings
-                var timeZone = regionalSettings.TimeZone;
-                if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Description)) { timeZone.SetSystemProperty(p => p.Description, options.RegionalSettings.TimeZone.Description); }
-                if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Id)) { timeZone.SetSystemProperty(p => p.Id, options.RegionalSettings.TimeZone.Id); };
-                if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Bias)) { timeZone.SetSystemProperty(p => p.Bias, options.RegionalSettings.TimeZone.Bias); };
-                if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.DaylightBias)) { timeZone.SetSystemProperty(p => p.DaylightBias, options.RegionalSettings.TimeZone.DaylightBias); }
-                if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.StandardBias)) { timeZone.SetSystemProperty(p => p.StandardBias, options.RegionalSettings.TimeZone.StandardBias); }
-                timeZone.Requested = true;
+                    // Copy timezone settings
+                    var timeZone = regionalSettings.TimeZone;
+                    if (timeZone != null)
+                    {
+                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Description)) { timeZone.SetSystemProperty(p => p.Description, options.RegionalSettings.TimeZone.Description); }
+                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Id)) { timeZone.SetSystemProperty(p => p.Id, options.RegionalSettings.TimeZone.Id); };
+                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Bias)) { timeZone.SetSystemProperty(p => p.Bias, options.RegionalSettings.TimeZone.Bias); };
+                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.DaylightBias)) { timeZone.SetSystemProperty(p => p.DaylightBias, options.RegionalSettings.TimeZone.DaylightBias); }
+                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.StandardBias)) { timeZone.SetSystemProperty(p => p.StandardBias, options.RegionalSettings.TimeZone.StandardBias); }
+                        timeZone.Requested = true;
+                    }
+                }
             }
 
             if (context.Web.IsPropertyAvailable(p => p.Url))
@@ -541,7 +548,7 @@ namespace PnP.Core.Services
                 context.Uri = context.Web.Url;
             }
 
-            if (options.SiteId == null || options.GroupId == null)
+            if (options == null || options.SiteId == null || options.GroupId == null || options.AdditionalSitePropertiesOnCreate != null)
             {
                 // Request the site properties
                 await context.Site.LoadAsync(siteProps.ToArray()).ConfigureAwait(false);
@@ -550,6 +557,7 @@ namespace PnP.Core.Services
             {
                 context.Site.SetSystemProperty(p => p.Id, options.SiteId);
                 context.Site.SetSystemProperty(p => p.GroupId, options.GroupId);
+                context.Site.Requested = true;
             }
 
             // Ensure the Graph ID is set once and only once

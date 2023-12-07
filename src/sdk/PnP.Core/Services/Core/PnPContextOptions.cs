@@ -28,17 +28,17 @@ namespace PnP.Core.Services
         /// <summary>
         /// Site Id to set on the context during creation
         /// </summary>
-        public string SiteId { get; set; }
+        public Guid? SiteId { get; set; }
 
         /// <summary>
         /// Web Id to set on the context during creation
         /// </summary>
-        public string WebId { get; set; }
+        public Guid? WebId { get; set; }
 
         /// <summary>
         /// Group Id to set on the context during creation
         /// </summary>
-        public string GroupId { get; set; }
+        public Guid? GroupId { get; set; }
 
         /// <summary>
         /// Regional Settings to set on the context during creation
