@@ -24,5 +24,25 @@ namespace PnP.Core.Services
         /// Properties to set on the context during creation
         /// </summary>
         public IDictionary<string, object> Properties { get; set; }
+
+        /// <summary>
+        /// Site Id to set on the context during creation
+        /// </summary>
+        public string SiteId { get; set; }
+
+        /// <summary>
+        /// Web Id to set on the context during creation
+        /// </summary>
+        public string WebId { get; set; }
+
+        /// <summary>
+        /// Group Id to set on the context during creation
+        /// </summary>
+        public string GroupId { get; set; }
+
+        /// <summary>
+        /// Regional Settings to set on the context during creation
+        /// </summary>
+        public IRegionalSettings RegionalSettings { get; set; }
     }
 }
