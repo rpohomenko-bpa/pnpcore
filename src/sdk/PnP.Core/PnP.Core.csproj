@@ -25,6 +25,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<SignAssembly>true</SignAssembly>
 		<AssemblyOriginatorKeyFile>..\pnp.core.snk</AssemblyOriginatorKeyFile>
+		<PackageId>BPA.$(AssemblyName)</PackageId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
