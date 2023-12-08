@@ -532,11 +532,11 @@ namespace PnP.Core.Services
                     var timeZone = regionalSettings.TimeZone;
                     if (timeZone != null)
                     {
-                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Description)) { timeZone.SetSystemProperty(p => p.Description, options.RegionalSettings.TimeZone.Description); }
-                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Id)) { timeZone.SetSystemProperty(p => p.Id, options.RegionalSettings.TimeZone.Id); };
-                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Bias)) { timeZone.SetSystemProperty(p => p.Bias, options.RegionalSettings.TimeZone.Bias); };
-                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.DaylightBias)) { timeZone.SetSystemProperty(p => p.DaylightBias, options.RegionalSettings.TimeZone.DaylightBias); }
-                        if (options.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.StandardBias)) { timeZone.SetSystemProperty(p => p.StandardBias, options.RegionalSettings.TimeZone.StandardBias); }
+                        if (options.RegionalSettings.TimeZone.Description != default) { timeZone.SetSystemProperty(p => p.Description, options.RegionalSettings.TimeZone.Description); }
+                        if (options.RegionalSettings.TimeZone.Id != default) { timeZone.SetSystemProperty(p => p.Id, options.RegionalSettings.TimeZone.Id); };
+                        if (options.RegionalSettings.TimeZone.Bias != default) { timeZone.SetSystemProperty(p => p.Bias, options.RegionalSettings.TimeZone.Bias); };
+                        if (options.RegionalSettings.TimeZone.DaylightBias != default) { timeZone.SetSystemProperty(p => p.DaylightBias, options.RegionalSettings.TimeZone.DaylightBias); }
+                        if (options.RegionalSettings.TimeZone.StandardBias != default) { timeZone.SetSystemProperty(p => p.StandardBias, options.RegionalSettings.TimeZone.StandardBias); }
                         timeZone.Requested = true;
                     }
                 }
