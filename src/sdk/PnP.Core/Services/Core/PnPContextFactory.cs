@@ -697,38 +697,38 @@ namespace PnP.Core.Services
                 var regionalSettings = context.Web.RegionalSettings;
                 if (regionalSettings != null && properties.RegionalSettings != null)
                 {
-                    if (properties.RegionalSettings.AM != default) { regionalSettings.SetSystemProperty(p => p.AM, properties.RegionalSettings.AM); }
-                    if (properties.RegionalSettings.CollationLCID != default) { regionalSettings.SetSystemProperty(p => p.CollationLCID, properties.RegionalSettings.CollationLCID); }
-                    if (properties.RegionalSettings.DateFormat != default) { regionalSettings.SetSystemProperty(p => p.DateFormat, properties.RegionalSettings.DateFormat); }
-                    if (properties.RegionalSettings.DateSeparator != default) { regionalSettings.SetSystemProperty(p => p.DateSeparator, properties.RegionalSettings.DateSeparator); }
-                    if (properties.RegionalSettings.DecimalSeparator != default) { regionalSettings.SetSystemProperty(p => p.DecimalSeparator, properties.RegionalSettings.DecimalSeparator); }
-                    if (properties.RegionalSettings.DigitGrouping != default) { regionalSettings.SetSystemProperty(p => p.DigitGrouping, properties.RegionalSettings.DigitGrouping); }
-                    if (properties.RegionalSettings.FirstDayOfWeek != default) { regionalSettings.SetSystemProperty(p => p.FirstDayOfWeek, properties.RegionalSettings.FirstDayOfWeek); }
-                    if (properties.RegionalSettings.IsEastAsia != default) { regionalSettings.SetSystemProperty(p => p.IsEastAsia, properties.RegionalSettings.IsEastAsia); }
-                    if (properties.RegionalSettings.IsRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsRightToLeft, properties.RegionalSettings.IsRightToLeft); }
-                    if (properties.RegionalSettings.IsUIRightToLeft != default) { regionalSettings.SetSystemProperty(p => p.IsUIRightToLeft, properties.RegionalSettings.IsUIRightToLeft); }
-                    if (properties.RegionalSettings.ListSeparator != default) { regionalSettings.SetSystemProperty(p => p.ListSeparator, properties.RegionalSettings.ListSeparator); }
-                    if (properties.RegionalSettings.LocaleId != default) { regionalSettings.SetSystemProperty(p => p.LocaleId, properties.RegionalSettings.LocaleId); }
-                    if (properties.RegionalSettings.NegativeSign != default) { regionalSettings.SetSystemProperty(p => p.NegativeSign, properties.RegionalSettings.NegativeSign); }
-                    if (properties.RegionalSettings.NegNumberMode != default) { regionalSettings.SetSystemProperty(p => p.NegNumberMode, properties.RegionalSettings.NegNumberMode); }
-                    if (properties.RegionalSettings.PM != default) { regionalSettings.SetSystemProperty(p => p.PM, properties.RegionalSettings.PM); }
-                    if (properties.RegionalSettings.PositiveSign != default) { regionalSettings.SetSystemProperty(p => p.PositiveSign, properties.RegionalSettings.PositiveSign); }
-                    if (properties.RegionalSettings.ShowWeeks != default) { regionalSettings.SetSystemProperty(p => p.ShowWeeks, properties.RegionalSettings.ShowWeeks); }
-                    if (properties.RegionalSettings.ThousandSeparator != default) { regionalSettings.SetSystemProperty(p => p.ThousandSeparator, properties.RegionalSettings.ThousandSeparator); }
-                    if (properties.RegionalSettings.Time24 != default) { regionalSettings.SetSystemProperty(p => p.Time24, properties.RegionalSettings.Time24); }
-                    if (properties.RegionalSettings.TimeMarkerPosition != default) { regionalSettings.SetSystemProperty(p => p.TimeMarkerPosition, properties.RegionalSettings.TimeMarkerPosition); }
-                    if (properties.RegionalSettings.TimeSeparator != default) { regionalSettings.SetSystemProperty(p => p.TimeSeparator, properties.RegionalSettings.TimeSeparator); }
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.AM)) { regionalSettings.SetSystemProperty(p => p.AM, properties.RegionalSettings.AM); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.CollationLCID)) { regionalSettings.SetSystemProperty(p => p.CollationLCID, properties.RegionalSettings.CollationLCID); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.DateFormat)) { regionalSettings.SetSystemProperty(p => p.DateFormat, properties.RegionalSettings.DateFormat); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.DateSeparator)) { regionalSettings.SetSystemProperty(p => p.DateSeparator, properties.RegionalSettings.DateSeparator); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.DecimalSeparator)) { regionalSettings.SetSystemProperty(p => p.DecimalSeparator, properties.RegionalSettings.DecimalSeparator); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.DigitGrouping)) { regionalSettings.SetSystemProperty(p => p.DigitGrouping, properties.RegionalSettings.DigitGrouping); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.FirstDayOfWeek)) { regionalSettings.SetSystemProperty(p => p.FirstDayOfWeek, properties.RegionalSettings.FirstDayOfWeek); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.IsEastAsia)) { regionalSettings.SetSystemProperty(p => p.IsEastAsia, properties.RegionalSettings.IsEastAsia); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.IsRightToLeft)) { regionalSettings.SetSystemProperty(p => p.IsRightToLeft, properties.RegionalSettings.IsRightToLeft); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.IsUIRightToLeft)) { regionalSettings.SetSystemProperty(p => p.IsUIRightToLeft, properties.RegionalSettings.IsUIRightToLeft); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.ListSeparator)) { regionalSettings.SetSystemProperty(p => p.ListSeparator, properties.RegionalSettings.ListSeparator); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.LocaleId)) { regionalSettings.SetSystemProperty(p => p.LocaleId, properties.RegionalSettings.LocaleId); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.NegativeSign)) { regionalSettings.SetSystemProperty(p => p.NegativeSign, properties.RegionalSettings.NegativeSign); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.NegNumberMode)) { regionalSettings.SetSystemProperty(p => p.NegNumberMode, properties.RegionalSettings.NegNumberMode); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.PM)) { regionalSettings.SetSystemProperty(p => p.PM, properties.RegionalSettings.PM); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.PositiveSign)) { regionalSettings.SetSystemProperty(p => p.PositiveSign, properties.RegionalSettings.PositiveSign); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.ShowWeeks)) { regionalSettings.SetSystemProperty(p => p.ShowWeeks, properties.RegionalSettings.ShowWeeks); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.ThousandSeparator)) { regionalSettings.SetSystemProperty(p => p.ThousandSeparator, properties.RegionalSettings.ThousandSeparator); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.Time24)) { regionalSettings.SetSystemProperty(p => p.Time24, properties.RegionalSettings.Time24); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.TimeMarkerPosition)) { regionalSettings.SetSystemProperty(p => p.TimeMarkerPosition, properties.RegionalSettings.TimeMarkerPosition); };
+                    if (properties.RegionalSettings.IsPropertyAvailable(p => p.TimeSeparator)) { regionalSettings.SetSystemProperty(p => p.TimeSeparator, properties.RegionalSettings.TimeSeparator); };
                     regionalSettings.Requested = true;
 
                     // Copy timezone settings
                     var timeZone = regionalSettings.TimeZone;
-                    if (timeZone != null)
+                    if (timeZone != null && properties.RegionalSettings.TimeZone != null)
                     {
-                        if (properties.RegionalSettings.TimeZone.Description != default) { timeZone.SetSystemProperty(p => p.Description, properties.RegionalSettings.TimeZone.Description); }
-                        if (properties.RegionalSettings.TimeZone.Id != default) { timeZone.SetSystemProperty(p => p.Id, properties.RegionalSettings.TimeZone.Id); };
-                        if (properties.RegionalSettings.TimeZone.Bias != default) { timeZone.SetSystemProperty(p => p.Bias, properties.RegionalSettings.TimeZone.Bias); };
-                        if (properties.RegionalSettings.TimeZone.DaylightBias != default) { timeZone.SetSystemProperty(p => p.DaylightBias, properties.RegionalSettings.TimeZone.DaylightBias); }
-                        if (properties.RegionalSettings.TimeZone.StandardBias != default) { timeZone.SetSystemProperty(p => p.StandardBias, properties.RegionalSettings.TimeZone.StandardBias); }
+                        if (properties.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Description)) { timeZone.SetSystemProperty(p => p.Description, properties.RegionalSettings.TimeZone.Description); };
+                        if (properties.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Id)) { timeZone.SetSystemProperty(p => p.Id, properties.RegionalSettings.TimeZone.Id); };
+                        if (properties.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.Bias)) { timeZone.SetSystemProperty(p => p.Bias, properties.RegionalSettings.TimeZone.Bias); };
+                        if (properties.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.DaylightBias)) { timeZone.SetSystemProperty(p => p.DaylightBias, properties.RegionalSettings.TimeZone.DaylightBias); };
+                        if (properties.RegionalSettings.TimeZone.IsPropertyAvailable(p => p.StandardBias)) { timeZone.SetSystemProperty(p => p.StandardBias, properties.RegionalSettings.TimeZone.StandardBias); };
                         timeZone.Requested = true;
                     }
                 }
